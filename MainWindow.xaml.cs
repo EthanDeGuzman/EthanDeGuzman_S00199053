@@ -20,7 +20,8 @@ namespace EthanDeGuzman_S00199053
     /// </summary>
     public partial class MainWindow : Window
     {
-        List<Game> AllGames;
+
+        GameData db = new GameData();
         public MainWindow()
         {
             InitializeComponent();
@@ -28,14 +29,13 @@ namespace EthanDeGuzman_S00199053
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-            GameData db = new GameData();
+            string[] Sort = { "PC", "Xbox", "PS", "Switch" };
+            filterPlatform.ItemsSource = Sort;
 
             var query = from g in db.Game
                         select g;
 
-            AllGames = query.ToList();
-
-            lstGame.ItemsSource = AllGames;
+            lstGame.ItemsSource = query.ToList();
         }
 
         private void lstGame_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -48,7 +48,56 @@ namespace EthanDeGuzman_S00199053
                 $"Game Name: {selectedGame.Name}" + $"\nDescription: {selectedGame.Description}"
                 + $"\nPlatform: {selectedGame.Platform}" + $"\nPrice: {selectedGame.Price}"
                 );
+            }
+        }
 
+        private void filterPlatform_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            string selectedPlatform = filterPlatform.SelectedItem as string;
+
+            if (selectedPlatform == "PC")
+            {
+                var query = from g in db.Game
+                            where g.Platform.Contains("PC")
+                            select g;
+
+                lstGame.ItemsSource = null;
+                lstGame.ItemsSource = query.ToList();
+            }
+            else if (selectedPlatform == "Xbox")
+            {
+                var query = from g in db.Game
+                            where g.Platform.Contains("Xbox")
+                            select g;
+
+                lstGame.ItemsSource = null;
+                lstGame.ItemsSource = query.ToList();
+            }
+            else if (selectedPlatform == "PS")
+            {
+                var query = from g in db.Game
+                            where g.Platform.Contains("PS")
+                            select g;
+
+                lstGame.ItemsSource = null;
+                lstGame.ItemsSource = query.ToList();
+            }
+            else if (selectedPlatform == "Switch")
+            {
+                var query = from g in db.Game
+                            where g.Platform.Contains("Switch")
+                            select g;
+
+                lstGame.ItemsSource = null;
+                lstGame.ItemsSource = query.ToList();
+            }
+            else
+            {
+                var query = from g in db.Game
+                            select g;
+
+                lstGame.ItemsSource = null;
+                lstGame.ItemsSource = query.ToList();
             }
         }
     }

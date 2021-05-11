@@ -30,5 +30,7 @@
 
         <ListBox ItemTemplate="{StaticResource ResourceKey=lstGameTemplate}" x:Name="lstGame" Grid.Row="1" Grid.Column="1" SelectionChanged="lstGame_SelectionChanged"/>
         <TextBlock x:Name="tblkDetails" Grid.Column="3" FontSize="12" TextWrapping="Wrap" Margin="0,18" Grid.RowSpan="3"/>
+        <ComboBox x:Name="filterPlatform" Grid.Column="1" HorizontalAlignment="Left" Margin="76,33,0,0" VerticalAlignment="Top" Width="120" SelectionChanged="filterPlatform_SelectionChanged"/>
+        <Label x:Name="lblGame" Content="Filter:" Grid.Column="1" HorizontalAlignment="Left" Margin="10,25,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="18" Width="61"/>
     </Grid>
 </Window>
