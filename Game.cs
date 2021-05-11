@@ -14,5 +14,12 @@ namespace EthanDeGuzman_S00199053
         public string Platform { get; set; }
         public double Price { get; set; }
         public string Game_Image { get; set; }
+
+        public void DecreasePrice(double number)
+        {
+            Price -= number;
+        }
     }
+
+    
 }
