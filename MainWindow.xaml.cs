@@ -15,9 +15,11 @@ using System.Windows.Shapes;
 
 namespace EthanDeGuzman_S00199053
 {
-    /// <summary>
-    /// Interaction logic for MainWindow.xaml
-    /// </summary>
+    /*========================================================================
+        Name: Ethan De Guzman
+        Student Number: S00199053
+        Github Link: https://github.com/EthanDeguzman/EthanDeGuzman_S00199053
+     =========================================================================*/
     public partial class MainWindow : Window
     {
 

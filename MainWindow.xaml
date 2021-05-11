@@ -9,7 +9,9 @@
     <Window.Resources>
         <DataTemplate x:Key="lstGameTemplate">
             <StackPanel Orientation="Horizontal">
-                <TextBlock Margin="5" Text="{Binding Name}" VerticalAlignment="Center"/>
+                <Image Source="{Binding Game_Image}" Height="90" Width="90"/>
+                <TextBlock Margin="5" Text="{Binding Name}" VerticalAlignment="Center" TextWrapping="Wrap"/>
+                <TextBlock Margin="5" Text="{Binding CriticScore, StringFormat=MetaCritic Score: {0}}" VerticalAlignment="Center" TextWrapping="Wrap"/>
             </StackPanel>
         </DataTemplate>
     </Window.Resources>
