@@ -31,7 +31,7 @@ namespace EthanDeGuzman_S00199053
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-            string[] Sort = { "PC", "Xbox", "PS", "Switch" };
+            string[] Sort = { "PC", "Xbox", "PS", "Switch", "All"};
             filterPlatform.ItemsSource = Sort;
 
             var query = from g in db.Game
